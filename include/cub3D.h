@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:19:48 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/20 14:14:29 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:36:43 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,6 @@ typedef struct s_var
 	char	*str;
 	char	*new_str;
 }t_var;
-/*----------------------------------------------*/
 
 /*set_map.c*/
 int		get_map_info(char **av, int ac, t_data *data);
@@ -162,6 +161,7 @@ void	free_make_tab(t_data *data, char *str_map, char *str_arg, char *str);
 
 /*free_graphic.c*/
 void	free_mlx(t_data *data);
+void    destroy_img(t_data *data);
 
 /*cut_map.c*/
 char	*cut_map(char *str, int *indice_cut);
@@ -194,7 +194,7 @@ void	draw_game(t_data *data, int i);
 void	draw_all_black(t_data *data, int color);
 
 /*key_imput.c*/
-void 	handle_input(t_data *data);
+void	move_player_key(t_data *data);
 
 /*texture.c*/
 void	init_texture_struct(t_data *data);

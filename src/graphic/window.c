@@ -6,18 +6,19 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:46:30 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/20 14:12:51 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:36:21 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-static int	close_window(t_data *data)
+static int    close_window(t_data *data)
 {
-	mlx_loop_end(data->mlx_init);
-	mlx_destroy_window(data->mlx_init, data->mlx_win);
-	free_mlx(data);
-	return (0);
+    mlx_loop_end(data->mlx_init);
+    destroy_img(data);
+    mlx_destroy_window(data->mlx_init, data->mlx_win);
+    free_mlx(data);
+    return (0);
 }
 
 static int    key_press(int keycode, t_data *data)

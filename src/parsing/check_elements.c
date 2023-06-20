@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:46:17 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/15 10:09:55 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:09:49 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,6 @@ void	check_elements(t_data *data)
 	data->ea_path = NULL;
 	data->floor_color = NULL;
 	data->sky_color = NULL;
-	data->tab_color_floor = malloc(sizeof(char *) * 4);
-	data->tab_color_sky = malloc(sizeof(char *) * 4);//a free dans free parsing
 	if (tab_len(data->arg) != 6)
 		free_2_tab(data, "Incorrect number elements");
 	check_all_identifier(data);
@@ -135,6 +133,8 @@ void	check_elements(t_data *data)
 		|| data->sky_color == NULL)
 		free_parsing(data, "Invalid identifier");
 	check_path(data);
+	data->tab_color_floor = malloc(sizeof(char *) * 4);
+	data->tab_color_sky = malloc(sizeof(char *) * 4);//a free dans free parsing
 	if (check_rgb(data->floor_color, data->tab_color_floor) == 1 || check_rgb(data->sky_color, data->tab_color_sky) == 1)
 		free_parsing(data, "Incorrect RGB value");
 }

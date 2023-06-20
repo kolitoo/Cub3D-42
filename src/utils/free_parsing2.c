@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_parsing2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 11:29:16 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/05 13:56:19 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:52:26 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	free_make_tab(t_data *data, char *str_map, char *str_arg, char *str)
 		free(str_map);
 	if (str_arg != NULL)
 		free(str_arg);
-	if (data->map != NULL)
-		free_tab(data->map);
+	if (data != NULL)
+		if (data->map != NULL)
+			free_tab(data->map);
 	exit (1);
 }

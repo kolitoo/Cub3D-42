@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+         #
+#    By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/30 11:18:50 by abourdon          #+#    #+#              #
-#    Updated: 2023/06/19 11:47:45 by abourdon         ###   ########.fr        #
+#    Updated: 2023/06/20 15:56:10 by lgirault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -I./include/ -g3
+CFLAGS = -I./include/ -g3
 Ldflags = -Lmlx -lX11 -lXext -lz -lm
 MLX_PATH = ./mlx-linux/
 Libs = -L./mlx-linux

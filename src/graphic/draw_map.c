@@ -6,16 +6,16 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:14:19 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/15 15:42:02 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:58:17 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-static void draw_circle(t_data *data, int center_x, int center_y, int rayon)
+static void	draw_circle(t_data *data, int center_x, int center_y, int rayon)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -rayon;
 	while (++i < rayon)
@@ -24,15 +24,17 @@ static void draw_circle(t_data *data, int center_x, int center_y, int rayon)
 		while (++j < rayon)
 		{
 			if (i * i + j * j <= rayon * rayon)
-				my_mlx_pixel_put(data, (center_x * 1) + (i * 1) - (rayon * 2), (center_y * 1) + (j * 1) - (rayon * 2), 0x0000FF);
+				my_mlx_pixel_put(data, (center_x * 1) + (i * 1)
+					- (rayon * 2), (center_y * 1) + (j * 1)
+					- (rayon * 2), 0x0000FF);
 		}
 	}
 }
 
-static void draw_background(t_data *data, int x, int y)
+static void	draw_background(t_data *data, int x, int y)
 {
-	int k;
-	int m;
+	int	k;
+	int	m;
 
 	k = -1;
 	while (++k < data->minimap_width)
