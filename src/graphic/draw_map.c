@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:14:19 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/20 16:58:17 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:29:11 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,15 @@ static void	draw_background(t_data *data, int x, int y)
 		m = -1;
 		while (++m < data->minimap_width)
 		{
-			if (data->map[y][x] == '0' || data->map[y][x] == 'N' || data->map[y][x] == 'S' || data->map[y][x] == 'W' || data->map[y][x] == 'E')//patch pb map
-				my_mlx_pixel_put(data, (x * data->minimap_width) + m, (y * data->minimap_width) + k, 0xFFFFFF);
+			if (data->map[y][x] == '0' || data->map[y][x] == 'N'
+				|| data->map[y][x] == 'S'
+				|| data->map[y][x] == 'W'
+				|| data->map[y][x] == 'E')
+				my_mlx_pixel_put(data, (x * data->minimap_width)
+					+ m, (y * data->minimap_width) + k, 0xFFFFFF);
 			if (data->map[y][x] == '1')
-				my_mlx_pixel_put(data, (x * data->minimap_width) + m, (y * data->minimap_width) + k, 0x000000);
+				my_mlx_pixel_put(data, (x * data->minimap_width)
+					+ m, (y * data->minimap_width) + k, 0x000000);
 		}
 	}
 }
@@ -54,25 +59,23 @@ static void	draw_background(t_data *data, int x, int y)
 // Dessine les côtés des wall en blanc
 static void	draw_wall_sides(t_data *data, int x, int y)
 {
-	int k;
+	int	k;
 
 	k = -1;
 	while (++k < data->minimap_width)
 	{
-		if (data->map[y][x] == '0' || data->map[y][x] == 'N' || data->map[y][x] == 'S' || data->map[y][x] == 'W' || data->map[y][x] == 'E')//patch pb map
-		{
-			my_mlx_pixel_put(data, (x * data->minimap_width) + k, (y * data->minimap_width), 0x000000);
-			my_mlx_pixel_put(data, (x * data->minimap_width) + k, (y * data->minimap_width) + ((data->minimap_width - 1)), 0x000000);
-			my_mlx_pixel_put(data, (x * data->minimap_width), (y * data->minimap_width) + k, 0x000000);
-			my_mlx_pixel_put(data, (x * data->minimap_width) + ((data->minimap_width - 1)), (y * data->minimap_width) + k, 0x000000);
-		}
-		else if (data->map[y][x] == '1')
-		{
-			my_mlx_pixel_put(data, (x * data->minimap_width) + k, (y * data->minimap_width), 0xFFFFFF);
-			my_mlx_pixel_put(data, (x * data->minimap_width) + k, (y * data->minimap_width) + ((data->minimap_width - 1)), 0xFFFFFF);
-			my_mlx_pixel_put(data, (x * data->minimap_width), (y * data->minimap_width) + k, 0xFFFFFF);
-			my_mlx_pixel_put(data, (x * data->minimap_width) + ((data->minimap_width - 1)), (y * data->minimap_width) + k, 0xFFFFFF);
-		} 
+		if (data->map[y][x] == ' ')
+			continue ;
+		my_mlx_pixel_put(data, (x * data->minimap_width)
+			+ k, (y * data->minimap_width), 0x000000);
+		my_mlx_pixel_put(data, (x * data->minimap_width)
+			+ k, (y * data->minimap_width)
+			+ ((data->minimap_width - 1)), 0x000000);
+		my_mlx_pixel_put(data, (x * data->minimap_width),
+			(y * data->minimap_width) + k, 0x000000);
+		my_mlx_pixel_put(data, (x * data->minimap_width)
+			+ ((data->minimap_width - 1)),
+			(y * data->minimap_width) + k, 0x000000);
 	}
 }
 
@@ -90,17 +93,17 @@ static void	bigger_line(t_data *data)
 	data->minimap_width = 400 / data->minimap_width;
 }
 
-void draw_minimap(t_data *data)
+void	draw_minimap(t_data *data)
 {
-	int x;
-	int y;
-	int center_x;
-	int center_y;
-	int rayon;
+	int	x;
+	int	y;
+	int	center_x;
+	int	center_y;
+	int	rayon;
 
-	y = 0;
+	y = -1;
 	bigger_line(data);
-	while (data->map[y] != NULL)
+	while (data->map[++y] != NULL)
 	{
 		x = 0;
 		while (data->map[y][x] != '\0')
@@ -109,10 +112,11 @@ void draw_minimap(t_data *data)
 			draw_wall_sides(data, x, y);
 			x++;
 		}
-		y++;
 	}
-	center_x = ((data->pos_x / 64) * data->minimap_width) + (data->minimap_width / 2);
-	center_y = ((data->pos_y / 64) * data->minimap_width) + (data->minimap_width / 2);
+	center_x = ((data->pos_x / 64) * data->minimap_width)
+		+ (data->minimap_width / 2);
+	center_y = ((data->pos_y / 64) * data->minimap_width)
+		+ (data->minimap_width / 2);
 	rayon = (data->minimap_width / 2) * 0.5;
 	draw_circle(data, center_x, center_y, rayon);
 	throw_ray_minimap(data->ray, data);

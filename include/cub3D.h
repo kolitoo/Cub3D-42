@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:19:48 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/20 15:36:43 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:03:22 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,7 @@ void	close_fd(t_var fd, t_data *data, int bool);
 
 /*free_parsing2.c*/
 void	free_make_tab(t_data *data, char *str_map, char *str_arg, char *str);
+void    free_tab_color(t_data *data, char *str, int bool);
 
 /*free_graphic.c*/
 void	free_mlx(t_data *data);
@@ -178,7 +179,7 @@ char	*itoahex(int nbr);
 int	test(char **tab_color);
 
 /*window.c*/
-void	create_window(t_data *data, t_ray *ray);
+void	create_window(t_data *data);
 
 /*rayon.c*/
 int	throw_ray(t_data *data);

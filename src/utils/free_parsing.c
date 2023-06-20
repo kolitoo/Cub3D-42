@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 16:01:33 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/20 16:13:54 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:32:38 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,27 @@ void	free_tab(char **tab)
 	free (tab);
 }
 
-void	free_2_tab(t_data *data, char *str)
+void    free_2_tab(t_data *data, char *str)
 {
+	int    i;
+
+	i = -1;
+	printf("Error\n%s\n", str);
 	free_tab(data->arg);
 	free_tab(data->map);
-	printf("Error\n%s\n", str);
+	free(data->no_path);
+	free(data->so_path);
+	free(data->we_path);
+	free(data->ea_path);
+	free(data->floor_color);
+	free(data->sky_color);
+	while (data->tab_color_floor != NULL && ++i <= 3)
+		free(data->tab_color_floor[i]);
+	free(data->tab_color_floor);
+	i = -1;
+	while (data->tab_color_sky != NULL && ++i <= 3)
+		free(data->tab_color_sky[i]);
+	free(data->tab_color_sky);
 	exit(1);
 }
 

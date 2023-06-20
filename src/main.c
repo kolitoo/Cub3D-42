@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:20:40 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/20 16:11:46 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:39:37 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ int	main(int ac, char **av)
     	data.perso_left = 0;
     	data.perso_right = 0;
 	init_mlx(&data, &ray);
-	create_window(&data, &ray);
+	create_window(&data);
 	free_all(&data);
 }

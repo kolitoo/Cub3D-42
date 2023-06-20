@@ -6,13 +6,13 @@
 #    By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/30 11:18:50 by abourdon          #+#    #+#              #
-#    Updated: 2023/06/20 15:56:10 by lgirault         ###   ########.fr        #
+#    Updated: 2023/06/20 17:24:28 by lgirault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 CC = cc
-CFLAGS = -I./include/ -g3
+CFLAGS = -Wall -Werror -Wextra -I./include/ -g3
 Ldflags = -Lmlx -lX11 -lXext -lz -lm
 MLX_PATH = ./mlx-linux/
 Libs = -L./mlx-linux
