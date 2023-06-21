@@ -6,12 +6,13 @@
 /*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:53:25 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/05 13:56:15 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:27:43 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+//Calcule le malloc de space_check
 static int	space_check_malloc(char *str)
 {
 	t_var	var;

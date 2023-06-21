@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   draw_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 19:07:01 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/20 17:50:34 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:46:00 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/*Cherche le debut et la fin du rayon a la verticale.
+Dessine le ciel de 0 a drawstart a la verticale.
+Appel ft_draw_texture qui va dessiner les textures sur notre image.
+Dessine le sol a partir de drawend jusque la fin de notre image a la verticale*/
 void	draw_game(t_data *data, int i)
 {
 	int	j;
@@ -33,6 +37,7 @@ void	draw_game(t_data *data, int i)
 		my_mlx_pixel_put(data, 1920 - i, j, data->color_floor);
 }
 
+/*Fonction qui permet de dessiner les pixel sur notre image*/
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
@@ -45,6 +50,8 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 #define LUCAS ?
 #define ALEX :
 
+/*Sers a dessiner une ligne a partir de coordonnées de début et fin. (Sers a dessiner les
+rayons sur la minimap)*/
 void	draw_ray_map(int x0, int y0, int x1, int y1, t_data *data)//a changer
 {
 	auto int dx = abs(x1 - x0);
@@ -53,37 +60,19 @@ void	draw_ray_map(int x0, int y0, int x1, int y1, t_data *data)//a changer
 	auto int sy = (y0 < y1) LUCAS 1 ALEX -1;
 	auto int err = dx - dy;
 
-    while (x0 != x1 || y0 != y1)
-    {
-        my_mlx_pixel_put(data, x0, y0, 0xFF0000);
-        int e2 = 2 * err;
-        if (e2 > -dy)
-        {
-            err -= dy;
-            x0 += sx;
-        }
-        if (e2 < dx)
-        {
-            err += dx;
-            y0 += sy;
-        }
-    }
-}
-
-void	draw_all_black(t_data *data, int color)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	while (x <= 1920)
+	while (x0 != x1 || y0 != y1)
 	{
-		y = 0;
-		while (y <= 1080)
+		my_mlx_pixel_put(data, x0, y0, 0xFF0000);
+		int e2 = 2 * err;
+		if (e2 > -dy)
 		{
-			my_mlx_pixel_put(data, x, y, color);
-			y++;
+			err -= dy;
+			x0 += sx;
 		}
-		x++;
+		if (e2 < dx)
+		{
+			err += dx;
+			y0 += sy;
+		}
 	}
 }

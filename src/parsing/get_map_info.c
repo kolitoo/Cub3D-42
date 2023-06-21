@@ -6,12 +6,13 @@
 /*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:05:09 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/05 16:48:35 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:27:16 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/*Check du que le path vers la map se finit bien par .cub*/
 static int	check_cub(char **av)
 {
 	t_var	var;

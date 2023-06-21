@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   rayon.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:31:20 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/20 16:56:52 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:40:47 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/*Permets de trouver camera_x et raydir_x/y*/
 static void	ray_init(t_ray *ray, int i)
 {
 	ray->camera_x = 2.00 * i / 1920 - 1;
 	ray->raydir_x = ray->dir_x + ray->plan_x * ray->camera_x;
 	ray->raydir_y = ray->dir_y + ray->plan_y * ray->camera_x;
 }
-
+/*Permet de trouver deltadist_x/y et ainsi sidedist_x/y*/
 static void	sidedist_deltadist(t_ray *ray, t_data *data)
 {
 	ray->map_x = data->pos_x;
@@ -47,6 +48,7 @@ static void	sidedist_deltadist(t_ray *ray, t_data *data)
 	}
 }
 
+/*Permet de connaitre la taille des rayons*/
 static void	len_ray(t_ray *ray, t_data *data)
 {
 	while (1)
@@ -74,6 +76,9 @@ static void	len_ray(t_ray *ray, t_data *data)
 		ray->wall_dist = 1;
 }
 
+/*Fonction qui lance tout le processus de raycasting dans la boucle.
+Le reste sert a afficher sur l'écran, dessiner la minimap est faire les deplacements
+du joueur*/
 int	throw_ray(t_data *data)
 {
 	double	i;
@@ -95,6 +100,7 @@ int	throw_ray(t_data *data)
 	return (0);
 }
 
+/*Sert a chercher les rayons et de dessiner la minimap*/
 void	throw_ray_minimap(t_ray *ray, t_data *data)
 {
 	double	i;

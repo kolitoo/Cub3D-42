@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:14:19 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/20 17:29:11 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:48:11 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/*Dessine un cercle sur la minimap (notre personnage)*/
 static void	draw_circle(t_data *data, int center_x, int center_y, int rayon)
 {
 	int	i;
@@ -31,6 +32,7 @@ static void	draw_circle(t_data *data, int center_x, int center_y, int rayon)
 	}
 }
 
+/*Dessine le background des 0 et des 1*/
 static void	draw_background(t_data *data, int x, int y)
 {
 	int	k;
@@ -55,8 +57,7 @@ static void	draw_background(t_data *data, int x, int y)
 	}
 }
 
-// Dessine les côtés des zéros en noir
-// Dessine les côtés des wall en blanc
+/*Dessine les côtés des zéros en noir et les côtés des wall en blanc*/
 static void	draw_wall_sides(t_data *data, int x, int y)
 {
 	int	k;
@@ -79,6 +80,7 @@ static void	draw_wall_sides(t_data *data, int x, int y)
 	}
 }
 
+/*Trouve la "resolution de notre minimap"*/
 static void	bigger_line(t_data *data)
 {
 	int	j;
@@ -93,6 +95,7 @@ static void	bigger_line(t_data *data)
 	data->minimap_width = 400 / data->minimap_width;
 }
 
+/*Fonction qui dessine notre minimap*/
 void	draw_minimap(t_data *data)
 {
 	int	x;

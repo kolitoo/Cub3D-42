@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:39:42 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/20 17:58:11 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:37:35 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/*texdir permet de savoir quelle texture mettre selon l'angle vers ou
+l'on regarde. wallx est la valeure ou le mur a été touché par le rayon*/
 void	ft_init_texture(t_data *data)
 {
 	if (data->ray->side == 1 && data->ray->raydir_y < 0)
@@ -31,6 +33,10 @@ void	ft_init_texture(t_data *data)
 	data->ray->wallx -= floor((data->ray->wallx));
 }
 
+/*texx et texy sont les coordonnées x et y de la texture
+step est la valeur qui indique de combien augmenter les coordonnées de la texture pour chaque pixel
+texpos est la coordonnée de depart
+Cette fonction permet de dessiner la texture correspondant pour chaque rayon*/
 void	ft_draw_texture(t_data *data, t_ray *ray, int i)
 {
 	double	step;
@@ -58,18 +64,22 @@ void	ft_draw_texture(t_data *data, t_ray *ray, int i)
 	}
 }
 
+/*Charge l'image grace a mlx_xpm_file_to_image dans texture->img*/
 static void	fill_texture(t_texture *texture, char *path, t_data *data)
 {	
 	texture->img = mlx_xpm_file_to_image(data->mlx_init,
 			path, &texture->width, &texture->height);
 }
 
+/*Permet d'init une image pour chaque texture*/
 static void	set_addr_texture(t_texture *texture)
 {
 	texture->addr = (int *)mlx_get_data_addr(texture->img,
 			&texture->bits_per_pixel, &texture->line_length, &texture->endian);
 }
 
+/*Creer le tableau de structure "texture" et init les 4 textures avec
+des fonctions de la mlx*/
 void	init_texture_struct(t_data *data)
 {
 	t_texture	*texture;

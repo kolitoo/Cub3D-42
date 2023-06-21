@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   key_imput.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 19:40:47 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/20 15:42:21 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:42:00 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/*Deplacement le joueur vers l'avant ou l'arriere par rapport a l'angle de la camera*/
 static void	move_player_front(t_data *data, double move_step)
 {
 	if (data->perso_up == 1)
@@ -34,6 +35,7 @@ static void	move_player_front(t_data *data, double move_step)
 	}
 }
 
+/*Deplacement le joueur vers la droite ou la gauche par rapport a l'angle de la camera*/
 static void	move_player_side(t_data *data, double move_step)
 {
 	if (data->perso_right == 1)
@@ -56,6 +58,7 @@ static void	move_player_side(t_data *data, double move_step)
 	}
 }
 
+/*Deplacement de la camera vers la droite ou la gauche*/
 static void	move_camera_key(t_data *data)
 {
 	const double	olddir_x = data->ray->dir_x;
@@ -85,6 +88,7 @@ static void	move_camera_key(t_data *data)
 	}
 }
 
+/*Appel toutes les fonctions de deplacement*/
 void	move_player_key(t_data *data)
 {
 	double	move_step;

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:46:30 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/20 18:01:20 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:31:46 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
+/*ferme la fenetre avec echap ou clic sur la croix avec la souris*/
 static int	close_window(t_data *data)
 {
 	mlx_loop_end(data->mlx_init);
@@ -21,6 +22,7 @@ static int	close_window(t_data *data)
 	return (0);
 }
 
+/*met variables a 1 lorsque l'on press la touche*/
 static int	key_press(int keycode, t_data *data)
 {
 	if (keycode == RI)
@@ -40,6 +42,7 @@ static int	key_press(int keycode, t_data *data)
 	return (1);
 }
 
+/*met variables a 0 lorsque l'on relache la touche*/
 static int	key_release(int keycode, t_data *data)
 {
 	if (keycode == RI)
@@ -57,6 +60,9 @@ static int	key_release(int keycode, t_data *data)
 	return (1);
 }
 
+/*mlx_init + init la window grace a mlx_new_window
+Cette fonction sert a lancer tout le programme (initialisation des textures,
+lancement raycasting et fonctions de deplacement)*/
 void	create_window(t_data *data)
 {
 	data->mlx_init = mlx_init();

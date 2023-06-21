@@ -3,24 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:20:40 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/20 17:39:37 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:28:11 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	print_map(char **tab)
-{
-	int	i;
-
-	i = -1;
-	while (tab[++i])
-		printf("                   %s\n", tab[i]);
-}
-
+//Init dir_x/y et plan_x_y en fonction de la position de depart du personnage + trouve la couleur rgb sky/floor
 static void	init_mlx(t_data *data, t_ray *ray)
 {
 	data->mlx_init = NULL;
@@ -66,17 +58,13 @@ int	main(int ac, char **av)
 
 	(void)ray;
 	data = (t_data){};
+	// data.cam_right = 0;
+	// data.cam_left = 0;
+	// data.perso_up = 0;
+	// data.perso_down = 0;
+	// data.perso_left = 0;
+	// data.perso_right = 0;
 	get_map_info(av, ac, &data);
-	// print_map(data.arg);
-	// printf("----------------------MAP----------------------\n");
-	// print_map(data.map);
-	// printf("-----------------------------------------------\n");
-	    data.cam_right = 0;
-  	  data.cam_left = 0;
-   	 data.perso_up = 0;
-   	 data.perso_down = 0;
-    	data.perso_left = 0;
-    	data.perso_right = 0;
 	init_mlx(&data, &ray);
 	create_window(&data);
 	free_all(&data);
