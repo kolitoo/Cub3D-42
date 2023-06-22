@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_elements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:46:17 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/20 18:02:42 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:11:46 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,29 +86,28 @@ chiffres pour le RGB et si ils sont bien entre 0 et 255*/
 static int	check_rgb(char	*str, char **tab_color)
 {
 	t_var	var;
-	int 	color;
 
 	var.i = 0;
 	if (str[var.i] == '\0')
 		return (1);
-	color = ft_atoi(str, &var.i);
-	if (color < 0 || color > 255 || str[var.i] == '\0')
+	var.color = ft_atoi(str, &var.i);
+	if (var.color < 0 || var.color > 255 || str[var.i] == '\0')
 		return (1);
 	if (str[var.i] == '\0')
 		return (1);
 	var.i++;
-	tab_color[0] = itoahex(color);
-	color = ft_atoi(str, &var.i);
-	if (color < 0 || color > 255 || str[var.i] == '\0')
+	tab_color[0] = itoahex(var.color);
+	var.color = ft_atoi(str, &var.i);
+	if (var.color < 0 || var.color > 255 || str[var.i] == '\0')
 		return (1);//free si pb psk color_* est malloc
 	var.i++;
 	if (str[var.i] == '\0')
 		return (1);
-	tab_color[1] = itoahex(color);
-	color = ft_atoi(str, &var.i);
-	if (color < 0 || color > 255 || str[var.i] != '\0')
+	tab_color[1] = itoahex(var.color);
+	var.color = ft_atoi(str, &var.i);
+	if (var.color < 0 || var.color > 255 || str[var.i] != '\0')
 		return (1);//free si pb psk color_* est malloc
-	tab_color[2] = itoahex(color);
+	tab_color[2] = itoahex(var.color);
 	tab_color[3] = NULL;
 	return (0);
 }
@@ -133,6 +132,7 @@ void	check_elements(t_data *data)
 	data->tab_color_sky = malloc(sizeof(char *) * 4);
 	if (!data->tab_color_sky)
 		free_tab_color(data, "tab_color_sky failed", 1);
-	if (check_rgb(data->floor_color, data->tab_color_floor) == 1 || check_rgb(data->sky_color, data->tab_color_sky) == 1)
+	if (check_rgb(data->floor_color, data->tab_color_floor) == 1
+		|| check_rgb(data->sky_color, data->tab_color_sky) == 1)
 		free_parsing(data, "Incorrect RGB value");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:19:48 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/20 18:03:22 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:10:29 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@
 typedef struct s_texture
 {
 	char	**pixel_tab;
-	int	**color_tab;
-	int	width;
-	int	height;
 	void	*img;
-	int	*addr;
-	int	bits_per_pixel;
-	int	line_length;
-	int	endian;
+	int		**color_tab;
+	int		width;
+	int		height;
+	int		*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 }t_texture;
 
 typedef struct s_ray
@@ -79,56 +79,55 @@ typedef struct s_ray
 	double	deltadist_x;
 	double	deltadist_y;
 	double	wall_dist;
-	int	step_x;
-	int	step_y;
 	double	map_x;
 	double	map_y;
-	int	side;
-	int	lineheight;
-	int	drawstart;
-	int	drawend;
-	int	texdir;
-	double 	wallx;
+	double	wallx;
+	int		step_x;
+	int		step_y;
+	int		side;
+	int		lineheight;
+	int		drawstart;
+	int		drawend;
+	int		texdir;
 }t_ray;
 
 typedef struct s_data
 {
-    char    **tab_color_sky;
-    char    **tab_color_floor;
-    int    color_sky;
-    int    color_floor;
-    int    minimap_width;
-    int    bool;
-    int    bits_per_pixel;
-    int    line_length;
-    int    endian;
-    int    cam_right;
-    int    cam_left;
-    int    perso_up;
-    int    perso_down;
-    int    perso_right;
-    int    perso_left;
-    char    **map;
-    char    **arg;
-    char    *no_path;
-    char    *so_path;
-    char    *we_path;
-    char    *ea_path;
-    char    *floor_color;
-    char    *sky_color;
-    char    pos_letter;
-    int    *addr;
-    void    *mlx_init;
-    void    *mlx_win;
-    void    *img;
-    void    *img2;
-    double    pos_x;
-    double    pos_y;
-    t_ray    *ray;
-    t_texture *texture;
+	char		**tab_color_sky;
+	char		**tab_color_floor;
+	char		**map;
+	char		**arg;
+	char		*no_path;
+	char		*so_path;
+	char		*we_path;
+	char		*ea_path;
+	char		*floor_color;
+	char		*sky_color;
+	char		pos_letter;
+	int			color_sky;
+	int			color_floor;
+	int			minimap_width;
+	int			bool;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+	int			cam_right;
+	int			cam_left;
+	int			perso_up;
+	int			perso_down;
+	int			perso_right;
+	int			perso_left;
+	int			*addr;
+	void		*mlx_init;
+	void		*mlx_win;
+	void		*img;
+	void		*img2;
+	double		pos_x;
+	double		pos_y;
+	t_ray		*ray;
+	t_texture	*texture;
 
 }t_data;
-
 
 typedef struct s_var
 {
@@ -136,6 +135,7 @@ typedef struct s_var
 	int		j;
 	int		k;
 	int		len;
+	int		color;
 	char	*str;
 	char	*new_str;
 }t_var;
@@ -158,11 +158,11 @@ void	close_fd(t_var fd, t_data *data, int bool);
 
 /*free_parsing2.c*/
 void	free_make_tab(t_data *data, char *str_map, char *str_arg, char *str);
-void    free_tab_color(t_data *data, char *str, int bool);
+void	free_tab_color(t_data *data, char *str, int bool);
 
 /*free_graphic.c*/
 void	free_mlx(t_data *data);
-void    destroy_img(t_data *data);
+void	destroy_img(t_data *data);
 
 /*cut_map.c*/
 char	*cut_map(char *str, int *indice_cut);
@@ -174,22 +174,22 @@ void	make_tab(char **av, t_data *data);
 void	check_all_identifier(t_data *data);
 
 /*utils.c*/
-int		tab_len(char **tab);
 char	*itoahex(int nbr);
-int	test(char **tab_color);
+int		tab_len(char **tab);
+int		test(char **tab_color);
 
 /*window.c*/
 void	create_window(t_data *data);
 
 /*rayon.c*/
-int	throw_ray(t_data *data);
+int		throw_ray(t_data *data);
 void	throw_ray_minimap(t_ray *ray, t_data *data);
 
 /*draw_map.C*/
 void	draw_minimap(t_data *data);
 
 /*draw_tools.c*/
-void    my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	draw_ray_map(int x0, int y0, int x1, int y1, t_data *data);
 void	draw_game(t_data *data, int i);
 void	draw_all_black(t_data *data, int color);

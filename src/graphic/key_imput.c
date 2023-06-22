@@ -6,13 +6,14 @@
 /*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 19:40:47 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/21 18:42:00 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:08:31 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-/*Deplacement le joueur vers l'avant ou l'arriere par rapport a l'angle de la camera*/
+/*Deplacement le joueur vers l'avant ou l'arriere par rapport a 
+l'angle de la camera*/
 static void	move_player_front(t_data *data, double move_step)
 {
 	if (data->perso_up == 1)
@@ -35,7 +36,8 @@ static void	move_player_front(t_data *data, double move_step)
 	}
 }
 
-/*Deplacement le joueur vers la droite ou la gauche par rapport a l'angle de la camera*/
+/*Deplacement le joueur vers la droite ou la gauche par rapport 
+a l'angle de la camera*/
 static void	move_player_side(t_data *data, double move_step)
 {
 	if (data->perso_right == 1)

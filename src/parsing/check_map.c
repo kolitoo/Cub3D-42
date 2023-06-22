@@ -6,7 +6,7 @@
 /*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:52:11 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/15 18:01:15 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:13:24 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,13 @@ static int	player_check(t_data *data)
 			if (data->map[var.j][var.i] == 'N' || data->map[var.j][var.i] == 'E'
 				|| data->map[var.j][var.i] == 'W'
 				|| data->map[var.j][var.i] == 'S')
-				{
-					data->pos_x = (double)(var.i + 0.5) * 64;
-					data->pos_y = (double)(var.j + 0.5) * 64;
-					data->pos_letter = data->map[var.j][var.i];
-					data->map[var.j][var.i] = '0';
-					var.k++;
-				}
+			{
+				data->pos_x = (double)(var.i + 0.5) * 64;
+				data->pos_y = (double)(var.j + 0.5) * 64;
+				data->pos_letter = data->map[var.j][var.i];
+				data->map[var.j][var.i] = '0';
+				var.k++;
+			}
 			var.i++;
 		}
 	}

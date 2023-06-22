@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_graphic.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 14:21:55 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/20 15:35:41 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:01:02 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ void	free_mlx(t_data *data)
 	exit(1);
 }
 
-void    destroy_img(t_data *data)
+void	destroy_img(t_data *data)
 {
-    int    i;
+	int	i;
 
-    i = -1;
-    mlx_destroy_image(data->mlx_init, data->img);
-    while (++i <= 3)
-        mlx_destroy_image(data->mlx_init, data->texture[i].img);
-    free (data->texture);
+	i = -1;
+	mlx_destroy_image(data->mlx_init, data->img);
+	while (++i <= 3)
+		mlx_destroy_image(data->mlx_init, data->texture[i].img);
+	free (data->texture);
 }

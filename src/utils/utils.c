@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:55:13 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/20 15:28:35 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:00:58 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*itoahex(int nbr)
 {
 	char	*str;
 	char	*base;
-	int	i;
+	int		i;
 
 	i = 0;
 	base = "0123456789ABCDEF";

@@ -6,7 +6,7 @@
 /*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:31:20 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/21 18:40:47 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:08:09 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	ray_init(t_ray *ray, int i)
 	ray->raydir_x = ray->dir_x + ray->plan_x * ray->camera_x;
 	ray->raydir_y = ray->dir_y + ray->plan_y * ray->camera_x;
 }
+
 /*Permet de trouver deltadist_x/y et ainsi sidedist_x/y*/
 static void	sidedist_deltadist(t_ray *ray, t_data *data)
 {
@@ -77,8 +78,8 @@ static void	len_ray(t_ray *ray, t_data *data)
 }
 
 /*Fonction qui lance tout le processus de raycasting dans la boucle.
-Le reste sert a afficher sur l'écran, dessiner la minimap est faire les deplacements
-du joueur*/
+Le reste sert a afficher sur l'écran, dessiner la minimap est faire 
+les deplacements du joueur*/
 int	throw_ray(t_data *data)
 {
 	double	i;

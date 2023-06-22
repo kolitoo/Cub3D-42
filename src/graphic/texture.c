@@ -6,7 +6,7 @@
 /*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:39:42 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/21 18:37:35 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:09:00 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ void	ft_init_texture(t_data *data)
 }
 
 /*texx et texy sont les coordonnées x et y de la texture
-step est la valeur qui indique de combien augmenter les coordonnées de la texture pour chaque pixel
-texpos est la coordonnée de depart
-Cette fonction permet de dessiner la texture correspondant pour chaque rayon*/
+step est la valeur qui indique de combien augmenter les 
+coordonnées de la texture pour chaque pixel texpos est 
+la coordonnée de depart. Cette fonction permet de dessiner
+la texture correspondant pour chaque rayon*/
 void	ft_draw_texture(t_data *data, t_ray *ray, int i)
 {
 	double	step;
