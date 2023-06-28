@@ -6,7 +6,7 @@
 /*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:55:13 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/22 11:00:58 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:29:54 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*itoahex(int nbr)
 	return (str);
 }
 
-int	test(char **tab_color)
+int	char_to_hexaint(char **tab_color)
 {
 	int	i;
 	int	j;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:19:48 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/28 10:54:53 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:30:13 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ void	check_all_identifier(t_data *data);
 /*utils.c*/
 char	*itoahex(int nbr);
 int		tab_len(char **tab);
-int		test(char **tab_color);
+int		char_to_hexaint(char **tab_color);
 
 /*window.c*/
 void	create_window(t_data *data);

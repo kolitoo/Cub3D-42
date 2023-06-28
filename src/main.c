@@ -6,7 +6,7 @@
 /*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:20:40 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/22 11:06:44 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:30:20 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 //de depart du personnage + trouve la couleur rgb sky/floor
 static void	init_start_pos_ns(t_data *data, t_ray *ray)
 {
-	data->color_floor = test(data->tab_color_floor);
-	data->color_sky = test(data->tab_color_sky);
+	data->color_floor = char_to_hexaint(data->tab_color_floor);
+	data->color_sky = char_to_hexaint(data->tab_color_sky);
 	if (data->pos_letter == 'S')
 	{
 		ray->dir_x = 0;
