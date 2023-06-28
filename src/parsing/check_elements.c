@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_elements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:46:17 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/22 11:11:46 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/28 11:01:21 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ static void	check_path(t_data *data)
 	fd.j = 0;
 	fd.k = 0;
 	fd.len = 0;
+	if (check_filename(data->no_path, 'x', 'p', 'm') == 1
+		|| check_filename(data->so_path, 'x', 'p', 'm') == 1
+		|| check_filename(data->we_path, 'x', 'p', 'm') == 1
+		|| check_filename(data->ea_path, 'x', 'p', 'm') == 1)
+		free_parsing(data, "Invalid texture path");
 	fd.i = open(data->no_path, O_RDONLY);
 	if (fd.i == -1)
 		free_parsing(data, "Invalid texture path");
@@ -74,10 +79,7 @@ static void	check_path(t_data *data)
 	fd.len = open(data->ea_path, O_RDONLY);
 	if (fd.len == -1)
 		close_fd(fd, data, 3);
-	close(fd.i);
-	close(fd.j);
-	close(fd.k);
-	close(fd.len);
+	return (close(fd.i), close(fd.j), close(fd.k),close(fd.len), (void)0);
 }
 
 /*Check_RGB : Parcour les chaines floor et sky et verifie si il y'a bien 3
@@ -99,14 +101,14 @@ static int	check_rgb(char	*str, char **tab_color)
 	tab_color[0] = itoahex(var.color);
 	var.color = ft_atoi(str, &var.i);
 	if (var.color < 0 || var.color > 255 || str[var.i] == '\0')
-		return (1);//free si pb psk color_* est malloc
+		return (1);
 	var.i++;
 	if (str[var.i] == '\0')
 		return (1);
 	tab_color[1] = itoahex(var.color);
 	var.color = ft_atoi(str, &var.i);
 	if (var.color < 0 || var.color > 255 || str[var.i] != '\0')
-		return (1);//free si pb psk color_* est malloc
+		return (1);
 	tab_color[2] = itoahex(var.color);
 	tab_color[3] = NULL;
 	return (0);

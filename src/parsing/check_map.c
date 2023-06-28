@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:52:11 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/22 11:13:24 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/28 09:22:09 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ static int	player_check(t_data *data)
 				|| data->map[var.j][var.i] == 'W'
 				|| data->map[var.j][var.i] == 'S')
 			{
-				data->pos_x = (double)(var.i + 0.5) * 64;
-				data->pos_y = (double)(var.j + 0.5) * 64;
+				data->pos_x = (double)(var.i + 0.5)*64;
+				data->pos_y = (double)(var.j + 0.5)*64;
 				data->pos_letter = data->map[var.j][var.i];
 				data->map[var.j][var.i] = '0';
 				var.k++;

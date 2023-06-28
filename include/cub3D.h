@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:19:48 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/22 11:10:29 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/28 10:54:53 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,14 +134,17 @@ typedef struct s_var
 	int		i;
 	int		j;
 	int		k;
+	int		l;
+	int		err;
 	int		len;
 	int		color;
 	char	*str;
 	char	*new_str;
 }t_var;
 
-/*set_map.c*/
+/*get_map_info.c*/
 int		get_map_info(char **av, int ac, t_data *data);
+int		check_filename(char *file, char a, char b, char c);
 
 /*check_map.c*/
 void	check_map(t_data *data);
@@ -190,7 +193,7 @@ void	draw_minimap(t_data *data);
 
 /*draw_tools.c*/
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	draw_ray_map(int x0, int y0, int x1, int y1, t_data *data);
+void	draw_ray_map(int x, int y, t_data *data);
 void	draw_game(t_data *data, int i);
 void	draw_all_black(t_data *data, int color);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rayon.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:31:20 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/22 11:08:09 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/28 10:01:39 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,6 @@ void	throw_ray_minimap(t_ray *ray, t_data *data)
 		sidedist_deltadist(ray, data);
 		len_ray(ray, data);
 		draw_ray_map((data->pos_x / 64) * data->minimap_width,
-			(data->pos_y / 64) * data->minimap_width, (ray->map_x / 64)
-			* data->minimap_width, (ray->map_y / 64)
-			* data->minimap_width, data);
+			(data->pos_y / 64) * data->minimap_width, data);
 	}
 }
