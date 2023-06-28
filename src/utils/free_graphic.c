@@ -6,7 +6,7 @@
 /*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 14:21:55 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/22 11:01:02 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:05:21 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ void	destroy_img(t_data *data)
 	int	i;
 
 	i = -1;
-	mlx_destroy_image(data->mlx_init, data->img);
+	if (data->img != NULL)
+		mlx_destroy_image(data->mlx_init, data->img);
 	while (++i <= 3)
-		mlx_destroy_image(data->mlx_init, data->texture[i].img);
+		if (data->texture[i].img != NULL)
+			mlx_destroy_image(data->mlx_init, data->texture[i].img);
 	free (data->texture);
 }

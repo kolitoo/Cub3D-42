@@ -6,14 +6,14 @@
 /*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:46:30 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/21 18:31:46 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:03:53 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
 /*ferme la fenetre avec echap ou clic sur la croix avec la souris*/
-static int	close_window(t_data *data)
+int	close_window(t_data *data)
 {
 	mlx_loop_end(data->mlx_init);
 	destroy_img(data);

@@ -6,7 +6,7 @@
 /*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:39:42 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/22 11:09:00 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:06:58 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,15 @@ void	init_texture_struct(t_data *data)
 	fill_texture(&texture[1], data->so_path, data);
 	fill_texture(&texture[2], data->ea_path, data);
 	fill_texture(&texture[3], data->we_path, data);
+	if (!texture[0].img || !texture[1].img || !texture[2].img
+		|| !texture[3].img)
+	{
+		data->texture = texture;
+		printf("Error\nWrong texture file\n");
+		close_window(data);
+		destroy_img(data);
+		free_mlx(data);
+	}
 	set_addr_texture(&texture[0]);
 	set_addr_texture(&texture[1]);
 	set_addr_texture(&texture[2]);

@@ -6,7 +6,7 @@
 /*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:19:48 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/28 13:30:13 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:07:16 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,7 @@ int		tab_len(char **tab);
 int		char_to_hexaint(char **tab_color);
 
 /*window.c*/
+int		close_window(t_data *data);
 void	create_window(t_data *data);
 
 /*rayon.c*/
