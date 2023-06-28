@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+         #
+#    By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/30 11:18:50 by abourdon          #+#    #+#              #
-#    Updated: 2023/06/20 17:24:28 by lgirault         ###   ########.fr        #
+#    Updated: 2023/06/28 14:33:26 by abourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ Ldflags = -Lmlx -lX11 -lXext -lz -lm
 MLX_PATH = ./mlx-linux/
 Libs = -L./mlx-linux
 LIBFT_PATH = ./libft/
-LIB = libft/libft.a
+LIBFT = libft/libft.a
 LIBMLX = mlx-linux/libmlx.a
 RM = rm -rf
 
@@ -50,13 +50,14 @@ OBJ = $(SRC:.c=.o)
 %.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@ 
 
-$(NAME): init $(OBJ)
+$(NAME): $(LIBFT) $(LIBMLX) $(OBJ)
 	@echo "$(BLUE)$(BOLD)Compiling $(NAME)...$(RESET)"
-	@$(CC) $(CFLAGS) $(OBJ) $(LIB) $(LIBMLX) -o $(NAME) $(Ldflags)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMLX) -o $(NAME) $(Ldflags)
 	@echo "$(GREEN)$(BOLD)$(NAME) compiled!$(RESET)"
 
-init:
+$(LIBFT):
 	@make --no-print-directory -C $(LIBFT_PATH)
+$(LIBMLX):
 	@make --no-print-directory -C $(MLX_PATH)
 
 all: $(NAME)
