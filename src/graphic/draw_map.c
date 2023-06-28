@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:14:19 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/21 18:48:11 by abourdon         ###   ########.fr       */
+/*   Updated: 2023/06/28 11:25:31 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,6 @@ void	draw_minimap(t_data *data)
 	center_y = ((data->pos_y / 64) * data->minimap_width)
 		+ (data->minimap_width / 2);
 	rayon = (data->minimap_width / 2) * 0.5;
-	draw_circle(data, center_x, center_y, rayon);
 	throw_ray_minimap(data->ray, data);
+	draw_circle(data, center_x, center_y, rayon);
 }

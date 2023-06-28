@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:46:17 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/28 11:01:21 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/28 11:53:13 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void	check_path(t_data *data)
 	fd.len = open(data->ea_path, O_RDONLY);
 	if (fd.len == -1)
 		close_fd(fd, data, 3);
-	return (close(fd.i), close(fd.j), close(fd.k),close(fd.len), (void)0);
+	return (close(fd.i), close(fd.j), close(fd.k), close(fd.len), (void)0);
 }
 
 /*Check_RGB : Parcour les chaines floor et sky et verifie si il y'a bien 3
@@ -95,16 +95,16 @@ static int	check_rgb(char	*str, char **tab_color)
 	var.color = ft_atoi(str, &var.i);
 	if (var.color < 0 || var.color > 255 || str[var.i] == '\0')
 		return (1);
-	if (str[var.i] == '\0')
+	if (str[var.i] == '\0' || str[var.i] != ',')
 		return (1);
 	var.i++;
 	tab_color[0] = itoahex(var.color);
 	var.color = ft_atoi(str, &var.i);
 	if (var.color < 0 || var.color > 255 || str[var.i] == '\0')
 		return (1);
-	var.i++;
-	if (str[var.i] == '\0')
+	if (str[var.i] == '\0' || str[var.i] != ',')
 		return (1);
+	var.i++;
 	tab_color[1] = itoahex(var.color);
 	var.color = ft_atoi(str, &var.i);
 	if (var.color < 0 || var.color > 255 || str[var.i] != '\0')

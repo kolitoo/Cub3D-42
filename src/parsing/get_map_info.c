@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:05:09 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/28 10:48:02 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/06/28 11:31:45 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	check_filename(char *file, char a, char b, char c)
 	if (file[var.len - 3] != a)
 		return (1);
 	if (file[var.len - 4] != '.')
+		return (1);
+	if (var.len - 4 == 0 || file[var.len - 5] == '/')
 		return (1);
 	if (ft_isascii(file[var.len - 5]) == 0)
 		return (1);
