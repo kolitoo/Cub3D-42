@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:46:17 by lgirault          #+#    #+#             */
-/*   Updated: 2023/06/28 11:53:13 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/07/18 17:33:52 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,21 +94,31 @@ static int	check_rgb(char	*str, char **tab_color)
 		return (1);
 	var.color = ft_atoi(str, &var.i);
 	if (var.color < 0 || var.color > 255 || str[var.i] == '\0')
+	{
+		tab_color[0] = NULL;
 		return (1);
+	}
 	if (str[var.i] == '\0' || str[var.i] != ',')
 		return (1);
 	var.i++;
 	tab_color[0] = itoahex(var.color);
 	var.color = ft_atoi(str, &var.i);
 	if (var.color < 0 || var.color > 255 || str[var.i] == '\0')
+	{
+		tab_color[1] = NULL;
 		return (1);
+	}
 	if (str[var.i] == '\0' || str[var.i] != ',')
 		return (1);
 	var.i++;
 	tab_color[1] = itoahex(var.color);
 	var.color = ft_atoi(str, &var.i);
 	if (var.color < 0 || var.color > 255 || str[var.i] != '\0')
+	{
+		printf("TEST\n");
+		tab_color[2] = NULL;
 		return (1);
+	}
 	tab_color[2] = itoahex(var.color);
 	tab_color[3] = NULL;
 	return (0);
@@ -128,10 +138,10 @@ void	check_elements(t_data *data)
 		|| data->sky_color == NULL)
 		free_parsing(data, "Invalid identifier");
 	check_path(data);
-	data->tab_color_floor = malloc(sizeof(char *) * 4);
+	data->tab_color_floor = calloc(sizeof(char *), 4);
 	if (!data->tab_color_floor)
 		free_tab_color(data, "tab_color_floor failed", 0);
-	data->tab_color_sky = malloc(sizeof(char *) * 4);
+	data->tab_color_sky = calloc(sizeof(char *), 4);
 	if (!data->tab_color_sky)
 		free_tab_color(data, "tab_color_sky failed", 1);
 	if (check_rgb(data->floor_color, data->tab_color_floor) == 1

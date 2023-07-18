@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 16:01:33 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/28 10:54:56 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/07/18 17:35:58 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ void	free_parsing(t_data *data, char *str)
 	free(data->ea_path);
 	free(data->floor_color);
 	free(data->sky_color);
-	while (data->tab_color_floor != NULL && ++i <= 3)
+	while (++i <= 3 && data->tab_color_floor != NULL && data->tab_color_floor[i] != NULL)
 		free(data->tab_color_floor[i]);
 	free(data->tab_color_floor);
 	i = -1;
-	while (data->tab_color_sky != NULL && ++i <= 3)
+	while (++i <= 3 && data->tab_color_sky != NULL && data->tab_color_sky[i] != NULL)
 		free(data->tab_color_sky[i]);
 	free(data->tab_color_sky);
 	printf("Error\n%s\n", str);

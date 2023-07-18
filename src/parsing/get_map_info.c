@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:05:09 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/28 11:31:45 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:39:41 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	check_filename(char *file, char a, char b, char c)
 	t_var	var;
 
 	var.len = ft_strlen(file);
+	if (var.len < 4)
+		return (1);
 	if (file[var.len - 1] != c)
 		return (1);
 	if (file[var.len - 2] != b)

@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:52:11 by abourdon          #+#    #+#             */
-/*   Updated: 2023/06/28 09:22:09 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/07/18 16:37:40 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static int	check_up_down(t_data *data, int j, int i)
 {
 	if (j == 0 || data->map[j + 1] == NULL)
 		return (1);
-	if ((int)ft_strlen(data->map[j - 1]) < i
-		|| (int)ft_strlen(data->map[j + 1]) < i)
+	if ((int)ft_strlen(data->map[j - 1]) <= i
+		|| (int)ft_strlen(data->map[j + 1]) <= i)
 		return (1);
 	if (data->map[j + 1][i] == ' ' || data->map[j - 1][i] == ' ')
 		return (1);
