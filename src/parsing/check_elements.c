@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:46:17 by lgirault          #+#    #+#             */
-/*   Updated: 2023/07/18 17:33:52 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/07/18 17:53:19 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,31 +94,21 @@ static int	check_rgb(char	*str, char **tab_color)
 		return (1);
 	var.color = ft_atoi(str, &var.i);
 	if (var.color < 0 || var.color > 255 || str[var.i] == '\0')
-	{
-		tab_color[0] = NULL;
-		return (1);
-	}
+		return (tab_color[0] = NULL, 1);
 	if (str[var.i] == '\0' || str[var.i] != ',')
 		return (1);
 	var.i++;
 	tab_color[0] = itoahex(var.color);
 	var.color = ft_atoi(str, &var.i);
 	if (var.color < 0 || var.color > 255 || str[var.i] == '\0')
-	{
-		tab_color[1] = NULL;
-		return (1);
-	}
+		return (tab_color[1] = NULL, 1);
 	if (str[var.i] == '\0' || str[var.i] != ',')
 		return (1);
 	var.i++;
 	tab_color[1] = itoahex(var.color);
 	var.color = ft_atoi(str, &var.i);
 	if (var.color < 0 || var.color > 255 || str[var.i] != '\0')
-	{
-		printf("TEST\n");
-		tab_color[2] = NULL;
-		return (1);
-	}
+		return (tab_color[2] = NULL, 1);
 	tab_color[2] = itoahex(var.color);
 	tab_color[3] = NULL;
 	return (0);
