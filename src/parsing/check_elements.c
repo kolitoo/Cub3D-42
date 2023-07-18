@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_elements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abourdon <abourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:46:17 by lgirault          #+#    #+#             */
-/*   Updated: 2023/07/18 17:53:19 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/07/18 18:21:21 by abourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,57 @@ static int	check_rgb(char	*str, char **tab_color)
 	var.i = 0;
 	if (str[var.i] == '\0')
 		return (1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
 	var.color = ft_atoi(str, &var.i);
 	if (var.color < 0 || var.color > 255 || str[var.i] == '\0')
 		return (tab_color[0] = NULL, 1);
